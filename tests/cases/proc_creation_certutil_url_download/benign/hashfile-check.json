@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 09:55:18.640",
+  "Computer": "WS-IT-003.corp.example",
+  "User": "CORP\\admin-ops",
+  "ProcessId": 4408,
+  "Image": "C:\\Windows\\System32\\certutil.exe",
+  "CommandLine": "certutil.exe -hashfile C:\\iso\\win11.iso SHA256",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe"
+}

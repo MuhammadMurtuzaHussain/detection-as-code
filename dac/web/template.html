@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detection as code</title>
+<meta name="description" content="Sigma detection rules stored in Git, each tested in CI against benign and malicious sample logs.">
+<script>
+  try {
+    var saved = localStorage.getItem('dac-theme');
+    if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) { /* storage can be blocked; the system theme applies */ }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@@STYLE@@
+</style>
+</head>
+<body>
+<a class="skip" href="#matrix-heading">Skip to the results</a>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <span class="site-name">Detection as code</span>
+    <nav class="top-actions" aria-label="Page tools">
+      <a id="repo-link" class="top-link" hidden>Source on GitHub</a>
+      <button id="theme-toggle" class="top-link top-button" type="button" aria-pressed="false">Dark mode</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero" aria-labelledby="verdict">
+      <h1 id="verdict" class="verdict">Loading results</h1>
+      <p id="meta" class="meta"></p>
+      <ul id="problems" class="problems" hidden></ul>
+      <p id="engine-warning" class="warning" role="alert" hidden></p>
+      <noscript><p class="warning">This report needs JavaScript to draw the results. The same data is in results.json.</p></noscript>
+    </section>
+
+    <section class="block" aria-labelledby="matrix-heading">
+      <h2 id="matrix-heading" class="block-title">Every rule against every log</h2>
+      <p class="lede">Each rule runs against every test log in the repository, not only its own. A rule must fire on the malicious logs written for it and stay quiet on every benign log. Select a log name to try it in the tester below.</p>
+      <div id="matrix" class="mx-wrap" tabindex="0" role="region" aria-label="Results matrix, scrolls sideways on narrow screens"></div>
+      <ul class="legend" aria-label="Legend">
+        <li><span class="chip chip--ok"><span class="icon" data-icon="ok"></span>Detected / Clean</span> expected result</li>
+        <li><span class="chip chip--bad"><span class="icon" data-icon="bad"></span>Missed / False alarm</span> a test is failing</li>
+        <li><span class="chip chip--fire"><span class="icon" data-icon="fire"></span>Also fires</span> overlap with another rule's attack log</li>
+        <li><span class="dot" aria-hidden="true"></span> quiet, as it should be</li>
+      </ul>
+    </section>
+
+    <section id="tester" class="block" aria-labelledby="tester-heading">
+      <h2 id="tester-heading" class="block-title">Test a log</h2>
+      <p class="lede">Paste a process-creation event as JSON, or start from one of the test logs and edit it. The rules are evaluated here in your browser and nothing is uploaded.</p>
+      <div class="tester">
+        <div class="tester-input">
+          <div class="field-row">
+            <label for="log-select" class="field-label">Start from a test log</label>
+            <select id="log-select" class="select"></select>
+          </div>
+          <label for="log-input" class="field-label">Log (JSON)</label>
+          <textarea id="log-input" class="editor" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+        </div>
+        <div class="tester-output">
+          <h3 class="mini-title">Result</h3>
+          <div id="log-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="coverage-heading">
+      <h2 id="coverage-heading" class="block-title">ATT&amp;CK coverage</h2>
+      <p id="coverage-summary" class="lede"></p>
+      <ol id="coverage" class="kill"></ol>
+    </section>
+
+    <section class="block" aria-labelledby="rules-heading">
+      <h2 id="rules-heading" class="block-title">Rules</h2>
+      <div id="rule-list"></div>
+    </section>
+
+    <section class="block" aria-labelledby="how-heading">
+      <h2 id="how-heading" class="block-title">How this page is made</h2>
+      <ol class="steps">
+        <li>Rules are Sigma YAML files in <code>rules/</code>. Each one has a folder of malicious and benign JSON logs in <code>tests/cases/</code>.</li>
+        <li>On every push, CI lints the rules, runs each rule against all logs, and checks that the JavaScript engine on this page returns the same verdicts as the Python engine.</li>
+        <li>When everything passes on the main branch, CI rebuilds this page and publishes it.</li>
+      </ol>
+      <p class="lede">The logs are synthetic. A pass shows that each rule does what its author intended on these samples. It does not show that the rule catches every real attack or stays quiet in your environment.</p>
+    </section>
+  </div>
+</main>
+
+<script type="application/json" id="data">@@DATA@@</script>
+<script>
+@@ENGINE@@
+</script>
+<script>
+@@APP@@
+</script>
+</body>
+</html>

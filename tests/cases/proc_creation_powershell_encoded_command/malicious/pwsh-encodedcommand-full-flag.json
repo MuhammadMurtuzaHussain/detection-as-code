@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 11:02:55.904",
+  "Computer": "SRV-APP-02.corp.example",
+  "User": "CORP\\svc-web",
+  "ProcessId": 3188,
+  "Image": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  "CommandLine": "pwsh.exe -ExecutionPolicy Bypass -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAGQAYQBjAC0AdABlAHMAdAAtAHAAYQB5AGwAbwBhAGQALQAyACIA",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe /c C:\\inetpub\\temp\\run.bat"
+}

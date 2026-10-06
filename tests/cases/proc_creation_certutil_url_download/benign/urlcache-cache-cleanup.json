@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 15:03:09.233",
+  "Computer": "SRV-APP-02.corp.example",
+  "User": "CORP\\admin-ops",
+  "ProcessId": 2760,
+  "Image": "C:\\Windows\\System32\\certutil.exe",
+  "CommandLine": "certutil.exe -urlcache * delete",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe"
+}

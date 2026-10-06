@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 07:45:30.880",
+  "Computer": "SRV-FILE-01.corp.example",
+  "User": "CORP\\admin-ops",
+  "ProcessId": 3340,
+  "Image": "C:\\Windows\\System32\\vssadmin.exe",
+  "CommandLine": "vssadmin.exe list shadows",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe"
+}

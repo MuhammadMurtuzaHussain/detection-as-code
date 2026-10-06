@@ -1,0 +1,37 @@
+title: Certutil Download From a Remote URL
+id: a3e1a497-793d-402e-b9ad-bc4df4cdbab4
+status: experimental
+description: >
+  Detects certutil.exe used with -urlcache or -verifyctl against a remote URL.
+  certutil is a signed Windows binary, so attackers use it to fetch tools and
+  payloads without a browser or PowerShell. Cache maintenance and hashing
+  (-urlcache * delete, -hashfile) do not match because they carry no URL.
+references:
+  - https://attack.mitre.org/techniques/T1105/
+  - https://lolbas-project.github.io/lolbas/Binaries/Certutil/
+author: Muhammad Murtuza Hussain
+date: 2026-10-06
+tags:
+  - attack.command_and_control
+  - attack.t1105
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_image:
+    Image|endswith: '\certutil.exe'
+  selection_flags:
+    CommandLine|contains:
+      - '-urlcache'
+      - '/urlcache'
+      - '-verifyctl'
+      - '/verifyctl'
+  selection_remote:
+    CommandLine|contains:
+      - 'http://'
+      - 'https://'
+      - 'ftp://'
+  condition: all of selection_*
+falsepositives:
+  - Rare administrative scripts that pull certificate revocation lists or trust lists with certutil. Allow-list the specific URLs.
+level: high

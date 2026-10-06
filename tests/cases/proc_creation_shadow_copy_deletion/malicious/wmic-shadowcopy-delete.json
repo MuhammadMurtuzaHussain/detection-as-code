@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 02:11:51.017",
+  "Computer": "SRV-FILE-01.corp.example",
+  "User": "NT AUTHORITY\\SYSTEM",
+  "ProcessId": 2204,
+  "Image": "C:\\Windows\\System32\\wbem\\WMIC.exe",
+  "CommandLine": "wmic.exe shadowcopy delete",
+  "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "ParentCommandLine": "powershell.exe"
+}

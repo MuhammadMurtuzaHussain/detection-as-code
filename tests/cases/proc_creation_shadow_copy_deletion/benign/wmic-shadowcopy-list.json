@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 07:47:02.119",
+  "Computer": "SRV-FILE-01.corp.example",
+  "User": "CORP\\admin-ops",
+  "ProcessId": 3416,
+  "Image": "C:\\Windows\\System32\\wbem\\WMIC.exe",
+  "CommandLine": "wmic.exe shadowcopy list brief",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe"
+}

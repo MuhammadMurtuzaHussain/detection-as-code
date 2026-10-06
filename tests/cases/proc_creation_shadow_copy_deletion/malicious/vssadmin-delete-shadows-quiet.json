@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 02:11:48.455",
+  "Computer": "SRV-FILE-01.corp.example",
+  "User": "NT AUTHORITY\\SYSTEM",
+  "ProcessId": 1932,
+  "Image": "C:\\Windows\\System32\\vssadmin.exe",
+  "CommandLine": "vssadmin.exe Delete Shadows /All /Quiet",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe /c vssadmin.exe Delete Shadows /All /Quiet"
+}

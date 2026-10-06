@@ -1,0 +1,33 @@
+title: PowerShell Encoded Command Execution
+id: 927e9cde-fa33-4a54-9473-b0aee0166986
+status: experimental
+description: >
+  Detects powershell.exe or pwsh.exe started with an encoded command, using
+  -EncodedCommand or any abbreviation PowerShell accepts (-e, -ec, -enc, ...),
+  followed by a Base64 payload. Encoded commands hide the script from casual
+  inspection and are common in malware loaders and living-off-the-land tradecraft.
+  The Base64 requirement keeps near misses such as "-Encoding utf8" from alerting.
+references:
+  - https://attack.mitre.org/techniques/T1059/001/
+  - https://attack.mitre.org/techniques/T1027/010/
+author: Muhammad Murtuza Hussain
+date: 2026-10-06
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.defense_evasion
+  - attack.t1027.010
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_image:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+  selection_encoded:
+    CommandLine|re: '(?i)\s[-/](?:e|ec|en|enc|enco|encod|encode|encoded|encodedc|encodedco|encodedcom|encodedcomm|encodedcomma|encodedcomman|encodedcommand)\s+[A-Za-z0-9+/]{16,}={0,2}(?:\s|$)'
+  condition: selection_image and selection_encoded
+falsepositives:
+  - Software deployment and configuration management tools (for example Intune, SCCM or Ansible over WinRM) that legitimately pass encoded commands. Tune by ParentImage or User once the legitimate sources are known.
+level: medium

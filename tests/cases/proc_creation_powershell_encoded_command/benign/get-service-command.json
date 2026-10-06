@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 08:30:12.101",
+  "Computer": "WS-IT-003.corp.example",
+  "User": "CORP\\admin-ops",
+  "ProcessId": 5120,
+  "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "CommandLine": "powershell.exe -NoProfile -Command \"Get-Service | Where-Object Status -eq 'Running'\"",
+  "ParentImage": "C:\\Windows\\explorer.exe",
+  "ParentCommandLine": "C:\\Windows\\Explorer.EXE"
+}

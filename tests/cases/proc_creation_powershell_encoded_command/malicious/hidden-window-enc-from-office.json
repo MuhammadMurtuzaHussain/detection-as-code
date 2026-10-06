@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 09:14:07.318",
+  "Computer": "WS-FIN-014.corp.example",
+  "User": "CORP\\jdoe",
+  "ProcessId": 7412,
+  "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "CommandLine": "powershell.exe -NoP -NonI -W Hidden -Enc VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAiAGQAYQBjAC0AdABlAHMAdAAtAHAAYQB5AGwAbwBhAGQALQAxACIA",
+  "ParentImage": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+  "ParentCommandLine": "\"C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE\" /n \"C:\\Users\\jdoe\\Downloads\\invoice-2026-10.docm\""
+}

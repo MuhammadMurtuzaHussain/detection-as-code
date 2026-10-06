@@ -1,0 +1,11 @@
+{
+  "EventID": 1,
+  "UtcTime": "2026-10-06 10:41:33.720",
+  "Computer": "WS-IT-003.corp.example",
+  "User": "CORP\\admin-ops",
+  "ProcessId": 6044,
+  "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "CommandLine": "powershell.exe -NoProfile -Command \"Get-Content C:\\logs\\app.log | Out-File C:\\temp\\copy.txt -Encoding utf8\"",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+  "ParentCommandLine": "cmd.exe"
+}
