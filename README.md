@@ -123,3 +123,4 @@ Every log is synthetic. Hostnames use the reserved `.example` and `.invalid` dom
 ## Licence
 
 MIT. See [LICENSE](LICENSE).
+# detection-as-code
